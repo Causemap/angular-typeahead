@@ -11,10 +11,7 @@ Getting Started
 How you acquire angular-typeahead is up to you.
 
 Preferred method:
-* Install with [Bower][bower]: `$ bower install angular-typeahead`
-
-Other methods:
-* Download latest *[angular-typeahead.js][angular-typeahead.js]* or *[angular-typeahead.min.js][angular-typeahead.min.js]*.
+* Install with [Bower][bower]: `$ bower install https://github.com/Causemap/angular-typeahead.git#`
 
 **Note:** angular-typeahead.js has dependencies on the following libraries:
 * [typeahead.js][typeahead.js] v0.10.x
@@ -23,18 +20,6 @@ Other methods:
 * [jQuery][jquery] v1.9+
 
 All of which must be loaded before *angular-typeahead.js*.
-
-Demo
----------------
-
-Please feel free to play with the Plnkr: [LIVE DEMO][plnkr]
-
-Issues
----------------
-
-Please feel free to add any issues to the GitHub issue tracker.
-
-However if I may make one request, **no "+1" comments, either add something worthwhile, or nothing at all**.
 
 Usage
 ---------------
@@ -130,4 +115,3 @@ function MyCtrl($scope) {
 [jQuery]: http://jquery.com/
 [angularjs]: http://angularjs.org/
 [typeahead.js]: http://twitter.github.io/typeahead.js/
-[plnkr]: http://plnkr.co/edit/cMvm7Z4REuIP69Uk4Tzz?p=preview

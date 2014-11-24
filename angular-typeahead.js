@@ -13,7 +13,7 @@ angular.module('siyfion.sfTypeahead', [])
             datasets = (angular.isArray(scope.datasets) ? scope.datasets : [scope.datasets]) || []; // normalize to array
 
         // Create the typeahead on the element
-        element.typeahead(scope.options, scope.datasets);
+        $(element).typeahead(scope.options, scope.datasets);
 
         // Parses and validates what is going to be set to model (called when: ngModel.$setViewValue(value))
         ngModel.$parsers.push(function (fromView) {
@@ -64,7 +64,7 @@ angular.module('siyfion.sfTypeahead', [])
                 if (found || index === datasets.length - 1) {
                   setTimeout(function () {
                     scope.$apply(function () {
-                      element.typeahead('val', value);
+                      $(element).typeahead('val', value);
                     });
                   }, 0);
                 }
@@ -74,7 +74,7 @@ angular.module('siyfion.sfTypeahead', [])
             return ''; // loading
           } else if (fromModel == null) {
             //fromModel has been set to null or undefined
-            element.typeahead('val', null);
+            $(element).typeahead('val', null);
           }
           return fromModel;
         });
@@ -96,29 +96,29 @@ angular.module('siyfion.sfTypeahead', [])
         }
 
         // Update the value binding when a value is manually selected from the dropdown.
-        element.bind('typeahead:selected', function(object, suggestion, dataset) {
+        $(element).bind('typeahead:selected', function(object, suggestion, dataset) {
           updateScope(object, suggestion, dataset);
           scope.$emit('typeahead:selected', suggestion, dataset);
         });
 
         // Update the value binding when a query is autocompleted.
-        element.bind('typeahead:autocompleted', function(object, suggestion, dataset) {
+        $(element).bind('typeahead:autocompleted', function(object, suggestion, dataset) {
           updateScope(object, suggestion, dataset);
           scope.$emit('typeahead:autocompleted', suggestion, dataset);
         });
 
         // Propagate the opened event
-        element.bind('typeahead:opened', function() {
+        $(element).bind('typeahead:opened', function() {
           scope.$emit('typeahead:opened');
         });
 
         // Propagate the closed event
-        element.bind('typeahead:closed', function() {
+        $(element).bind('typeahead:closed', function() {
           scope.$emit('typeahead:closed');
         });
 
         // Propagate the cursorchanged event
-        element.bind('typeahead:cursorchanged', function(event, suggestion, dataset) {
+        $(element).bind('typeahead:cursorchanged', function(event, suggestion, dataset) {
           scope.$emit('typeahead:cursorchanged', event, suggestion, dataset);
         });
       }
